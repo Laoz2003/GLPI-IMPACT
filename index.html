@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Canvas & Planner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">CanvasApp</div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active" data-view="canvas">Canvas</a></li>
+                    <li><a href="#" data-view="calendar">Calendar</a></li>
+                    <li><a href="#" data-view="progress">Progress</a></li>
+                    <li><a href="#" data-view="documents">Documents (G-Drive)</a></li>
+                    <li><a href="#" data-view="integrations">Integrations (Zoho)</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content" id="main-content">
+            <!-- Canvas View Placeholder -->
+            <section id="view-canvas" class="view active">
+                <h2>Task Canvas</h2>
+                <div id="kanban-board"></div>
+            </section>
+
+            <!-- Calendar View Placeholder -->
+            <section id="view-calendar" class="view hidden">
+                <h2>Calendar</h2>
+                <div id="calendar-container"></div>
+            </section>
+
+            <!-- Progress View Placeholder -->
+            <section id="view-progress" class="view hidden">
+                <h2>Progress</h2>
+                <div id="progress-container"></div>
+            </section>
+
+             <!-- Documents View Placeholder -->
+            <section id="view-documents" class="view hidden">
+                <h2>Documents (Google Drive)</h2>
+                <div id="documents-container"></div>
+            </section>
+
+            <!-- Integrations View Placeholder -->
+            <section id="view-integrations" class="view hidden">
+                <h2>Integrations (Zoho)</h2>
+                <div id="integrations-container"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="api_integrations.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
