@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Canvas & Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -26,9 +29,39 @@
         <main class="main-content" id="main-content">
             <!-- Canvas View Placeholder -->
             <section id="view-canvas" class="view active">
-                <h2>Task Canvas</h2>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                    <h2 style="margin-bottom: 0;">Task Canvas</h2>
+                    <button id="create-task-btn" class="action-btn" style="margin-top: 0;">+ New Task</button>
+                </div>
                 <div id="kanban-board"></div>
             </section>
+
+            <!-- Create Task Modal -->
+            <div id="task-modal" class="modal hidden">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h3>Create New Task</h3>
+                    <form id="create-task-form">
+                        <div class="form-group">
+                            <label for="task-title">Title</label>
+                            <input type="text" id="task-title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="task-desc">Description</label>
+                            <textarea id="task-desc" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="task-status">Status</label>
+                            <select id="task-status">
+                                <option value="todo">To Do</option>
+                                <option value="inProgress">In Progress</option>
+                                <option value="done">Done</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="action-btn">Save Task</button>
+                    </form>
+                </div>
+            </div>
 
             <!-- Calendar View Placeholder -->
             <section id="view-calendar" class="view hidden">
@@ -45,13 +78,27 @@
              <!-- Documents View Placeholder -->
             <section id="view-documents" class="view hidden">
                 <h2>Documents (Google Drive)</h2>
-                <div id="documents-container"></div>
+                <div id="documents-container">
+                    <div class="integration-card">
+                        <h3>Google Drive Sync</h3>
+                        <p>Connect your account to attach documents directly to tasks.</p>
+                        <button id="connect-google-btn" class="action-btn">Connect Google Drive</button>
+                        <p id="google-status" style="margin-top: 10px; color: var(--text-secondary);"></p>
+                    </div>
+                </div>
             </section>
 
             <!-- Integrations View Placeholder -->
             <section id="view-integrations" class="view hidden">
                 <h2>Integrations (Zoho)</h2>
-                <div id="integrations-container"></div>
+                <div id="integrations-container">
+                    <div class="integration-card">
+                        <h3>Zoho CRM</h3>
+                        <p>Sync tasks with Zoho CRM leads and contacts.</p>
+                        <button id="connect-zoho-btn" class="action-btn">Sync with Zoho</button>
+                        <p id="zoho-status" style="margin-top: 10px; color: var(--text-secondary);"></p>
+                    </div>
+                </div>
             </section>
         </main>
     </div>
